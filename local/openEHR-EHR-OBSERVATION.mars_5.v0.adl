@@ -1,0 +1,155 @@
+archetype (adl_version=1.4; uid=a0fd717a-5af7-4cd2-9cdb-171a778a4fd5)
+	openEHR-EHR-OBSERVATION.mars_5.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2025-12-09">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"db99022c-f96d-3fc8-a064-db7507688d69">
+		["MD5-CAM-1.0.1"] = <"3e8556578f31d7a6743cc0301e251b63">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Medication Adherence Report Scale 5 (MARS-5)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forgot to take them
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- I alter the dose
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- I stop taking them for a while
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- I decide to miss out a dose
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- I take less than instructed
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication Adherence Report Scale 5 (MARS-5)">
+					description = <"MARS_5">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"I forgot to take them">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Always">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Often">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Sometimes">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Rarely">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"I alter the dose">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"I stop taking them for a while">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"I decide to miss out a dose">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"I take less than instructed">
+					description = <"">
+				>
+			>
+		>
+	>
